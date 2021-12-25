@@ -1,0 +1,32 @@
+{
+	"id": "1-e13f257d-78c6-46cf-ae8c-13686517ac5f",
+	"self": "https://graph.microsoft.com/v1.0/users/48d31887-5fad-4d73-a9f5-3c356e68a038/onenote/notebooks/1-e13f257d-78c6-46cf-ae8c-13686517ac5f",
+	"createdDateTime": "2017-09-15T01:15:44Z",
+	"displayName": "Megan @ Work",
+	"lastModifiedDateTime": "2017-09-15T01:15:44Z",
+	"isDefault": false,
+	"userRole": "Owner",
+	"isShared": false,
+	"sectionsUrl": "https://graph.microsoft.com/v1.0/users/48d31887-5fad-4d73-a9f5-3c356e68a038/onenote/notebooks/1-e13f257d-78c6-46cf-ae8c-13686517ac5f/sections",
+	"sectionGroupsUrl": "https://graph.microsoft.com/v1.0/users/48d31887-5fad-4d73-a9f5-3c356e68a038/onenote/notebooks/1-e13f257d-78c6-46cf-ae8c-13686517ac5f/sectionGroups",
+	"createdBy": {
+		"user": {
+			"id": "48d31887-5fad-4d73-a9f5-3c356e68a038",
+			"displayName": "Megan Bowen"
+		}
+	},
+	"lastModifiedBy": {
+		"user": {
+			"id": "48d31887-5fad-4d73-a9f5-3c356e68a038",
+			"displayName": "Megan Bowen"
+		}
+	},
+	"links": {
+		"oneNoteClientUrl": {
+			"href": "onenote:https://m365x214355-my.sharepoint.com/personal/meganb_m365x214355_onmicrosoft_com/Documents/Notebooks/Megan%20@%20Work"
+		},
+		"oneNoteWebUrl": {
+			"href": "https://m365x214355-my.sharepoint.com/personal/meganb_m365x214355_onmicrosoft_com/Documents/Notebooks/Megan%20@%20Work"
+		}
+	}
+}
