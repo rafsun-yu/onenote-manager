@@ -1,5 +1,8 @@
 import click
+
+from onm.clients.onenote import OneNoteClient
 from .auth import auth
+from .merge import merge
 from onm.clients import config
 from onm.clients import tools
 from onm.clients.microsoft import MicrosoftClient
@@ -24,6 +27,9 @@ def launch(ctx):
         scope=["Notes.Read", "User.Read"]
     )
 
+    # Initates OneNote Client
+    ctx.obj.onc = OneNoteClient(ctx.obj.msc)
+
     # Loads user and token in MSC from local storage
     config.DATA_DIR.mkdir(exist_ok=True, parents=True)
 
@@ -31,6 +37,22 @@ def launch(ctx):
         ctx.obj.msc.oauth.token = tools.load_dict(config.TOKEN_PATH)
         ctx.obj.msc.user = tools.load_dict(config.USER_INFO_PATH)
 
+    
+    # Default user preference
+    ctx.obj.pref = {
+        "merge": {
+            "qn": {"notebook": None, "section": None},
+            "qnb": {"notebook": None, "section": None},
+            "d": {"notebook": None, "section": None}
+        }
+    }
+
+    # Load user preference
+    if config.PREF_PATH.is_file():
+        ctx.obj.pref = tools.load_dict(config.PREF_PATH)
+
+
 
 # Adds subcommands
 launch.add_command(auth)
+launch.add_command(merge)

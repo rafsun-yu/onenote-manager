@@ -55,4 +55,5 @@ def logout(ctx):
     """Clears user information from local storage."""
     ctx.obj.config.TOKEN_PATH.unlink(missing_ok=True)
     ctx.obj.config.USER_INFO_PATH.unlink(missing_ok=True)
+    ctx.obj.config.PREF_PATH.unlink(missing_ok=True)
     pass

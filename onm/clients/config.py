@@ -27,3 +27,6 @@ TOKEN_PATH = DATA_DIR / "token.json"
 
 # User info path
 USER_INFO_PATH = DATA_DIR / "user.json"
+
+# Preference path
+PREF_PATH = DATA_DIR / "preference.json"
