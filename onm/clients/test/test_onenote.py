@@ -44,14 +44,23 @@ class TestOneNote(unittest.TestCase):
     
 
     def test_verify_notebook(self):
-        self.assertTrue(onc.verify_by_name('School'))
-        self.assertFalse(onc.verify_by_name('Home'))
-        pass 
+        self.assertIsNotNone(onc.search('School'))
+        self.assertIsNone(onc.search('Home')) 
+
 
     def test_verify_section(self):
-        self.assertTrue(onc.verify_by_name('School', section_name='Deadlines'))
-        self.assertFalse(onc.verify_by_name('My Work', section_name='Deadlines'))
-        pass 
+        self.assertIsNotNone(onc.search('School', section_name='Deadlines'))
+        self.assertIsNone(onc.search('My Work', section_name='Deadlines'))
+         
+
+    def test_search_list(self):
+        l = [1, 2, 3, 4, 5, 6]
+
+        searched = onc._search_list(l, lambda x : x > 3)
+        self.assertEqual(searched, 4)
+
+        searched = onc._search_list(l, lambda x : x > 6)
+        self.assertIsNone(searched)
 
 
 if __name__ == '__main__':

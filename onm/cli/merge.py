@@ -54,12 +54,12 @@ def config(ctx, quicknote, quicknote_backup, dump, stat):
         click.echo("Verifying...")
 
         for key in ctx.obj.pref["merge"].keys():
-            exists = ctx.obj.onc.verify_by_name(
+            section = ctx.obj.onc.search(
                 notebook_name=ctx.obj.pref["merge"][key]["notebook"],
                 section_name=ctx.obj.pref["merge"][key]["section"]
             )
 
-            if not exists:
+            if section is None:
                 click.echo(f"The location for '{key}' doesn't exist. Try again with different location.")
                 return
 

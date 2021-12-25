@@ -45,34 +45,43 @@ class OneNoteClient:
         return sections
 
 
-    def verify_by_name(self, notebook_name: str, section_name: str = None) -> bool:
+    def search(self, notebook_name: str, section_name: str = None):
         """
-        Returns if the provided notebooks/section exists.
+        Returns the first matching instance from the search criteria. If nothing matches, 
+        returns None.
 
-        If section_name is missing, then checks if only the notebook exists. If both are provided,
-        then checks if the section exists inside the notebook.
+        If section_name is None, then only searches for notebook_name. If both are provided,
+        then searches for section_name inside the notebook_name.
+
+        Returns:
+            Notebook | Section | None
         """
-        # Verify notebook
+        # Search notebook
         notebooks = self.list_notebooks()
+        notebook = self._search_list(notebooks, lambda x : x.display_name == notebook_name)
 
-        notebook_id = None
-        for notebook in notebooks:
-            if notebook.display_name == notebook_name:
-                notebook_id = notebook.id
-
-        if notebook_id is None:
-            return False
+        if notebook is None:
+            return None
         elif section_name is None:
-            return True
+            return notebook
 
-        # Verify section
-        sections = self.list_sections(notebook_id)
+        # Search section
+        sections = self.list_sections(notebook.id)
+        section = self._search_list(sections, lambda x : x.display_name == section_name)
 
-        section_id = None
-        for section in sections:
-            if section.display_name == section_name:
-                section_id = section.id
-
-        return section_id is not None
+        return section
 
         
+    def _search_list(self, l: list, condition):
+        """
+        Returns the first item in the list that matches the condition. If none matches,
+        returns None.
+
+        Args:
+            l - list \n
+            condition - a lambda or a function that takes on argument (a list item) and returns bool.
+        """
+        return next(
+            filter(condition, l),
+            None
+        )
