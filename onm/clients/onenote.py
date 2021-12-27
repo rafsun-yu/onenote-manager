@@ -87,10 +87,16 @@ class OneNoteClient:
         sections = self.list_sections(notebook.id)
         section = self._search_list(sections, lambda x : x.display_name == section_name)
 
-        # Search page
-        # To-be implemented
+        if section is None:
+            return None
+        elif page_name is None:
+            return section
 
-        return section
+        # Search page
+        pages = self.list_pages(section.id)
+        page = self._search_list(pages, lambda x : x.title == page_name)
+
+        return page
 
         
     def _search_list(self, l: list, condition):

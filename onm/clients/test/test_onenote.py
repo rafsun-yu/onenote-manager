@@ -58,6 +58,12 @@ class TestOneNote(unittest.TestCase):
     def test_verify_section(self):
         self.assertIsNotNone(onc.search('School', section_name='Deadlines'))
         self.assertIsNone(onc.search('My Work', section_name='Deadlines'))
+
+
+    def test_verify_page(self):
+        self.assertIsNotNone(onc.search('My Work', section_name='Untitled Section', page_name='Notes on meeting x'))
+        self.assertIsNone(onc.search('My Work', section_name='Quick Notex', page_name='Notes on meeting x'))
+        self.assertIsNone(onc.search('My Work', section_name='Quick Notes', page_name='Notes on meeting y'))
          
 
     def test_search_list(self):
