@@ -66,6 +66,15 @@ class TestOneNote(unittest.TestCase):
         self.assertIsNone(onc.search('My Work', section_name='Quick Notes', page_name='Notes on meeting y'))
          
 
+    def test_create_page(self):
+        page = onc.create_page(
+            section_id='1-420c410c-927c-4e5f-b082-025e444b88e8',
+            title="Hello 2",
+            content_body="Hi are you okay"
+        )
+        self.assertEqual(page.title, "Hello 2")
+
+
     def test_search_list(self):
         l = [1, 2, 3, 4, 5, 6]
 

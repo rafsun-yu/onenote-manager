@@ -1,8 +1,11 @@
+from datetime import datetime
+import pathlib
+from bs4 import BeautifulSoup
+
+from .microsoft import MicrosoftClient
 from ..models.notebook import Notebook
 from ..models.section import Section
 from ..models.page import Page
-from .microsoft import MicrosoftClient
-import json
 
 class OneNoteClient:
     """
@@ -112,3 +115,42 @@ class OneNoteClient:
             filter(condition, l),
             None
         )
+
+
+    def create_page(self, section_id, title="Untitled page", content_body:str=None) -> Page:
+        """
+        Creates a new page in the provided section and returns the instance of newly 
+        created Page. 
+
+        Args:
+            content_body - page content in html or text format
+        """
+        # Reads template
+        template_file = pathlib.Path(__file__).parent / "new-page-template.html"
+        with open(template_file, 'r') as f:
+            html_doc = f.read()
+
+        soup = BeautifulSoup(html_doc, 'html.parser')
+
+        # Sets title
+        soup.title.string = title
+
+        # Sets created datetime
+        created = soup.select('meta[name=created]')[0]
+        created['content'] = date = datetime.today().isoformat()
+
+        # Sets content
+        content = soup.select('body > div')[0]
+        if content_body is not None:
+            content.append(content_body)
+
+        # Sends post request
+        resp = self.msc.oauth.post(
+            url = f"https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages",
+            data=str(soup),
+            headers={
+                "Content-Type": "text/html"
+            }
+        )
+
+        return Page.from_json(json_obj=resp.json())
