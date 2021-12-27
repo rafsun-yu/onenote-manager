@@ -41,9 +41,9 @@ def launch(ctx):
     # Default user preference
     ctx.obj.pref = {
         "merge": {
-            "qn": {"notebook": None, "section": None},
-            "qnb": {"notebook": None, "section": None},
-            "d": {"notebook": None, "section": None}
+            "qn": {"name": None, "section_id": None},
+            "qnb": {"name": None, "section_id": None},
+            "d": {"name": None, "section_id": None}
         }
     }
 

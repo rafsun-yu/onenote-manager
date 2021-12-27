@@ -29,40 +29,49 @@ def config(ctx, quicknote, quicknote_backup, dump, stat):
     """
     if stat is True:
         merge_config = ctx.obj.pref['merge']
-        qn = f"{merge_config['qn']['notebook']}/{merge_config['qn']['section']}"
-        qnb = f"{merge_config['qnb']['notebook']}/{merge_config['qnb']['section']}"
-        d = f"{merge_config['d']['notebook']}/{merge_config['d']['section']}"
+        qn = f"{merge_config['qn']['name']}"
+        qnb = f"{merge_config['qnb']['name']}"
+        d = f"{merge_config['d']['name']}"
         click.echo(f"Quicknote: {qn}\nQuicknote Backup: {qnb}\nDump: {d}") 
     else:
         # Check for empty parameter
-        if quicknote == '' or quicknote_backup == '' or dump == '':
+        if any(map(
+            lambda x: x is None or x == '', 
+            [quicknote, quicknote_backup, dump]
+        )):
             click.echo("Some required parameters are empty.")
             return 
-
-        try:
-            ctx.obj.pref["merge"]["qn"]["notebook"] = quicknote.split('/')[0]
-            ctx.obj.pref["merge"]["qn"]["section"] = quicknote.split('/')[1]
-            ctx.obj.pref["merge"]["qnb"]["notebook"] = quicknote_backup.split('/')[0]
-            ctx.obj.pref["merge"]["qnb"]["section"] = quicknote_backup.split('/')[1]
-            ctx.obj.pref["merge"]["d"]["notebook"] = dump.split('/')[0]
-            ctx.obj.pref["merge"]["d"]["section"] = dump.split('/')[1]
-        except:
-            click.echo("Invalid input.")
-            return
 
         # Verify
         click.echo("Verifying...")
 
-        for key in ctx.obj.pref["merge"].keys():
+        # this dictionary must have similar structure to pref["merge"] 
+        merge_dict = {
+            "qn": {"name": quicknote, "section_id": None},
+            "qnb": {"name": quicknote_backup, "section_id": None},
+            "d": {"name": dump, "section_id": None}
+        }
+
+        for key in merge_dict.keys():
+            try:
+                notebook_name = merge_dict[key]['name'].split('/')[0]
+                section_name = merge_dict[key]['name'].split('/')[1]
+            except:
+                click.echo("Invalid input.")
+                return
+
             section = ctx.obj.onc.search(
-                notebook_name=ctx.obj.pref["merge"][key]["notebook"],
-                section_name=ctx.obj.pref["merge"][key]["section"]
+                notebook_name=notebook_name,
+                section_name=section_name
             )
 
             if section is None:
-                click.echo(f"The location for '{key}' doesn't exist. Try again with different location.")
+                click.echo(f"The location '{merge_dict[key]['name']}' doesn't exist. Try again with different location.")
                 return
+            else:
+                merge_dict[key]['section_id'] = section.id
 
-        click.echo("Verified.")
+        click.echo("Verified and saved.")
+        ctx.obj.pref['merge'] = merge_dict
         tools.save_dict(str(ctx.obj.config.PREF_PATH), ctx.obj.pref)
         
