@@ -41,6 +41,13 @@ class TestOneNote(unittest.TestCase):
         names = list(map(lambda s: s.display_name, sections))
         expected_names = ['Deadlines', 'Classnotes']
         self.assertEqual(names.sort(), expected_names.sort())
+
+
+    def test_list_pages(self):
+        pages = onc.list_pages('1-420c410c-927c-4e5f-b082-025e444b88e8')
+        names = list(map(lambda p: p.title, pages))
+        expected_names = ['First page', 'Notes on meeting x', 'Reminder about report y']
+        self.assertEqual(names.sort(), expected_names.sort())
     
 
     def test_verify_notebook(self):

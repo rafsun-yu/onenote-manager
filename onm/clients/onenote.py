@@ -1,5 +1,6 @@
 from ..models.notebook import Notebook
 from ..models.section import Section
+from ..models.page import Page
 from .microsoft import MicrosoftClient
 import json
 
@@ -45,16 +46,33 @@ class OneNoteClient:
         return sections
 
 
-    def search(self, notebook_name: str, section_name: str = None):
+    def list_pages(self, section_id: str) -> list:
+        """
+        Returns a list of all pages inside the provided section.
+        """
+        pages = []
+        data = self.msc.oauth.get(f'https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages').json()
+
+        for o in data['value']:
+            p = Page.from_json(json_obj=o)
+            pages.append(p)
+
+        return pages
+
+
+    def search(self, notebook_name: str, section_name: str = None, page_name: str = None):
         """
         Returns the first matching instance from the search criteria. If nothing matches, 
         returns None.
 
-        If section_name is None, then only searches for notebook_name. If both are provided,
-        then searches for section_name inside the notebook_name.
+        If only notebook_name is provided, then only searches for notebook_name. \n
+        If only notebook_name and section_name are provided, then searches for section_name 
+        inside the notebook_name. \n
+        If all three argumetns are provided, then searches for page_name inside section_name
+        inside notebook_name.
 
         Returns:
-            Notebook | Section | None
+            Notebook | Section | Page | None
         """
         # Search notebook
         notebooks = self.list_notebooks()
@@ -68,6 +86,9 @@ class OneNoteClient:
         # Search section
         sections = self.list_sections(notebook.id)
         section = self._search_list(sections, lambda x : x.display_name == section_name)
+
+        # Search page
+        # To-be implemented
 
         return section
 
