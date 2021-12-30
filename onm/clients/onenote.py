@@ -117,37 +117,25 @@ class OneNoteClient:
         )
 
 
-    def create_page(self, section_id, title="Untitled page", content_body:str=None) -> Page:
+    def create_page(self, section_id, title="Untitled page", content_body:str=None, page_content:PageContent=None) -> Page:
         """
         Creates a new page in the provided section and returns the instance of newly 
         created Page. 
 
         Args:
             content_body - page content in html or text format
+            page_content - an instance of PageContent
         """
-        # Reads template
-        template_file = pathlib.Path(__file__).parent / "new-page-template.html"
-        with open(template_file, 'r') as f:
-            html_doc = f.read()
+        if page_content is None:
+            page_content = PageContent(html_body=content_body)
 
-        soup = BeautifulSoup(html_doc, 'html.parser')
-
-        # Sets title
-        soup.title.string = title
-
-        # Sets created datetime
-        created = soup.select('meta[name=created]')[0]
-        created['content'] = date = datetime.today().isoformat()
-
-        # Sets content
-        content = soup.select('body > div')[0]
-        if content_body is not None:
-            content.append(content_body)
+        page_content._set_soup_created(created_datetime=datetime.today())
+        page_content._set_soup_title(title=title)
 
         # Sends post request
         resp = self.msc.oauth.post(
             url = f"https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages",
-            data=str(soup),
+            data=page_content.get_html(),
             headers={
                 "Content-Type": "text/html"
             }

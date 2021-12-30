@@ -1,7 +1,8 @@
+from os import sep
 from urllib import parse
 from onm.clients import config
 from onm.clients import tools
-from onm.models.page import Page
+from onm.models.page import Page, PageContent
 from ..microsoft import MicrosoftClient
 from ..onenote import OneNoteClient
 import unittest
@@ -71,7 +72,7 @@ class TestOneNote(unittest.TestCase):
         page = onc.create_page(
             section_id='1-420c410c-927c-4e5f-b082-025e444b88e8',
             title="Hello 2",
-            content_body="Hi are you okay"
+            content_body="Hi are <b>you</b> okay</br><h1>Yes</h1>"
         )
         self.assertEqual(page.title, "Hello 2")
 
