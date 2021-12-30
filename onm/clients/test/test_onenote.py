@@ -95,5 +95,13 @@ class TestOneNote(unittest.TestCase):
         print(p.page_content.get_text())
 
 
+    def test_append_to_page(self):
+        page_content = PageContent(html_body="to be appended")
+        onc.append_to_page(
+            page_id="1-0d8278dbf8674ec9980510ec15db6418!57-420c410c-927c-4e5f-b082-025e444b88e8", 
+            page_content=page_content
+        )
+
+
 if __name__ == '__main__':
     unittest.main()

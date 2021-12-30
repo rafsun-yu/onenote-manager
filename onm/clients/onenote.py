@@ -1,5 +1,6 @@
 from datetime import datetime
 import pathlib
+import json
 from bs4 import BeautifulSoup
 
 from .microsoft import MicrosoftClient
@@ -152,3 +153,24 @@ class OneNoteClient:
         html = self.msc.oauth.get(page.content_url).text
         page.page_content = PageContent(html=html)
         pass 
+
+
+    def append_to_page(self, page_id:str, html_body:str=None, page_content:PageContent=None) -> None:
+        """
+        Appends the provided content to the page with page_id. Either of html_body or
+        page_content must be provided.
+        """
+        if html_body is None:
+            html_body = page_content.get_html(only_body=True)
+
+        resp = self.msc.oauth.patch(
+            url=f"https://graph.microsoft.com/v1.0//me/onenote/pages/{page_id}/content",
+            data = json.dumps([{
+                'target': 'body',
+                'action': 'append',
+                'content': html_body
+            }]),
+            headers={
+                "Content-Type": "application/json"
+            }
+        )
