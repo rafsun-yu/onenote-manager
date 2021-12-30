@@ -77,11 +77,17 @@ class PageContent():
         ))
 
 
-    def get_html(self) -> str:
+    def get_html(self, only_body=False) -> str:
         """
         Returns entire page content as HTML.
+
+        Args:
+            only_body - If set, then returns only HTML inside the first 'body > div'.
         """
-        return str(self.soup)
+        if only_body:
+            return self._get_soup_content().encode_contents().decode("utf-8")
+        else:
+            return str(self.soup)
 
 
     def get_text(self) -> str:

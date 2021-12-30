@@ -38,5 +38,12 @@ class TestPageContent(unittest.TestCase):
             pc3._get_soup_content().encode_contents()
         )
 
+
+    def test_get_html(self):
+        pc1 = PageContent(html_body="Hello 1")
+        self.assertNotEqual("Hello 1", pc1.get_html())
+        self.assertEqual("Hello 1", pc1.get_html(only_body=True))
+
+
 if __name__ == '__main__':
     unittest.main()
