@@ -11,42 +11,51 @@ class Page(Model):
         """
         The attributes are taken from Micrsofot Graph API documentation.
         https://docs.microsoft.com/en-us/graph/api/resources/page?view=graph-rest-1.0
+
+        Except for page_content.
         """
         self.id = id 
         self.created_date_time = created_date_time 
         self.title = title 
         self.content_url = content_url
+        self.page_content = PageContent()
 
 
 class PageContent():
     """ Contents of a page """
 
-    def __init__(self, html=None) -> None:
+    def __init__(self, html=None, html_body=None) -> None:
         """
-        Instantiates a page. Default content is taken from the template if html is not provided.
+        Instantiates a page's content. 
+        
+        Default content is taken from the template if neither html nor html_body is provided.
 
         HTML template: see the new-page-template.html.
 
         Args:
-            html (str) - html string of the page. Make sure that the structure is similar
-            to the new-page-template.html.
+            html (str) - entire html string of page. See the HTML template.
+            html_body (str) - html string of the page's body.
         """
-        self.soup = BeautifulSoup(self._get_template_html(), 'html.parser')
-
         if html is not None:
-            self.append(html=html)
+            self.soup = BeautifulSoup(html, 'html.parser')
+            return
+        else:    
+            self.soup = BeautifulSoup(self._get_template_html(), 'html.parser')
+
+            if html_body is not None:
+                self.append(html_body=html_body)
 
 
-    def append(self, separator=None, html=None, page_content=None) -> None:
+    def append(self, separator=None, html_body=None, page_content=None) -> None:
         """
-        Appends provided content to the current content. Either of html or page_content
+        Appends provided content to the current content. Either of html_body or page_content
         must be provided.
 
         Only the contents inside 'body>div' of the provided page_content is appended to this 'body>div'.
 
         Args:
             separator (str) - separator is added before appending. 
-            html (str) - html string.
+            html_body (str) - html string to be appened in the body.
             page_content (PageContent)- an instance of PageContent.
         """
         # adds linebreak only when the content is not empty
@@ -60,17 +69,17 @@ class PageContent():
 
         # converts page_content to html
         if page_content is not None:
-            html = page_content._get_soup_content().encode_contents()
+            html_body = page_content._get_soup_content().encode_contents()
 
         self._get_soup_content().append(BeautifulSoup(
-            html,
+            html_body,
             'html.parser'
         ))
 
 
     def get_html(self) -> str:
         """
-        Returns content as HTML.
+        Returns entire page content as HTML.
         """
         return str(self.soup)
 

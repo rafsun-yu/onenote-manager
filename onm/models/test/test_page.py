@@ -26,12 +26,12 @@ class TestPageContent(unittest.TestCase):
 
 
     def test_append(self):
-        pc1 = PageContent(html="Hello 1")
+        pc1 = PageContent(html_body="Hello 1")
         pc3 = PageContent()
         
         pc3.append(page_content=pc1)
         pc3.append(separator='--', page_content=pc1)
-        pc3.append(html='<b>hello 2</b>')
+        pc3.append(html_body='<b>hello 2</b>')
 
         self.assertEqual(
             b"Hello 1</br>--</br>Hello 1</br><b>hello 2</b>",
