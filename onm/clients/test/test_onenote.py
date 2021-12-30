@@ -1,6 +1,7 @@
 from urllib import parse
 from onm.clients import config
 from onm.clients import tools
+from onm.models.page import Page
 from ..microsoft import MicrosoftClient
 from ..onenote import OneNoteClient
 import unittest
@@ -83,6 +84,14 @@ class TestOneNote(unittest.TestCase):
 
         searched = onc._search_list(l, lambda x : x > 6)
         self.assertIsNone(searched)
+
+
+    def test_load_page_content(self):
+        p = Page(
+            content_url="https://graph.microsoft.com/v1.0/users/608e5eda-301f-4291-bce3-af30a199a377/onenote/pages/1-6c4dfcd207024e7abee7569f2f9e3d57!22-420c410c-927c-4e5f-b082-025e444b88e8/content"
+        )
+        onc.load_page_content(p)
+        print(p.page_content.get_text())
 
 
 if __name__ == '__main__':

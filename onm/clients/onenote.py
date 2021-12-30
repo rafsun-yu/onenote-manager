@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from .microsoft import MicrosoftClient
 from ..models.notebook import Notebook
 from ..models.section import Section
-from ..models.page import Page
+from ..models.page import Page, PageContent
 
 class OneNoteClient:
     """
@@ -154,3 +154,13 @@ class OneNoteClient:
         )
 
         return Page.from_json(json_obj=resp.json())
+
+
+    def load_page_content(self, page:Page):
+        """
+        Loads content as PageContent for the provided page and set it to the page_content
+        attribute.
+        """
+        html = self.msc.oauth.get(page.content_url).text
+        page.page_content = PageContent(html=html)
+        pass 
