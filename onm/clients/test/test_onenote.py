@@ -103,5 +103,23 @@ class TestOneNote(unittest.TestCase):
         )
 
 
+    def test_delete_page(self):
+        page_to_be_deleted = "1-26a5b452aaad486a8104b1d9bf2a4af7!75-420c410c-927c-4e5f-b082-025e444b88e8"
+        onc.delete_page(page_id=page_to_be_deleted)
+
+
+    def test_copy_page(self):
+        page_to_be_copied = "1-26a5b452aaad486a8104b1d9bf2a4af7!125-420c410c-927c-4e5f-b082-025e444b88e8"
+        destination_section = "1-cd65ae70-3596-4544-835a-17c850d1c564"
+        onc.copy_page(page_id=page_to_be_copied, section_id=destination_section)
+
+    
+    def test_move_page(self):
+        # page = onc.create_page(section_id="1-420c410c-927c-4e5f-b082-025e444b88e8", title="Page to be moved", content_body="hi")
+        page_to_be_moved = "1-26a5b452aaad486a8104b1d9bf2a4af7!125-420c410c-927c-4e5f-b082-025e444b88e8"
+        destination_section = "1-cd65ae70-3596-4544-835a-17c850d1c564"
+        onc.copy_page(page_id=page_to_be_moved, section_id=destination_section, move=True)
+
+
 if __name__ == '__main__':
     unittest.main()

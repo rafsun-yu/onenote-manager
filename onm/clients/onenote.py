@@ -2,6 +2,7 @@ from datetime import datetime
 import pathlib
 import json
 from bs4 import BeautifulSoup
+import polling
 
 from .microsoft import MicrosoftClient
 from ..models.notebook import Notebook
@@ -152,7 +153,6 @@ class OneNoteClient:
         """
         html = self.msc.oauth.get(page.content_url).text
         page.page_content = PageContent(html=html)
-        pass 
 
 
     def append_to_page(self, page_id:str, html_body:str=None, page_content:PageContent=None) -> None:
@@ -173,4 +173,70 @@ class OneNoteClient:
             headers={
                 "Content-Type": "application/json"
             }
+        )
+
+    
+    def copy_page(self, page_id:str, section_id:str, move:bool=False) -> None:
+        """
+        Copy a page to a section. 
+
+        Args:
+            page_id - ID of the page to be copied.
+            section_id - ID of the destination section.
+            move - If True, removes the page if copy is successful.  
+        """
+        # Requests copy operation
+        resp = self.msc.oauth.post(
+            url=f"https://graph.microsoft.com/v1.0//me/onenote/pages/{page_id}/copyToSection",
+            data=json.dumps({
+                'id': section_id
+            }),
+            headers={
+                "Content-Type": "application/json"
+            }
+        )
+
+        if resp.status_code != 202:
+            print(resp.text)
+            return
+
+        # Creates polling to check result of the operation
+        operation_id = resp.json()['id']
+
+        def polling_status(resp):
+            if resp.status_code == 200:
+                return resp.json()['status'].lower()  
+            else: 
+                return None
+
+        try:
+            polling_result = polling.poll(
+                lambda: self.msc.oauth.get(
+                    url=f"https://graph.microsoft.com/v1.0/me/onenote/operations/{operation_id}"
+                ),
+                step=10,
+                max_tries=3,
+                check_success=lambda resp: polling_status(resp) in ['completed', 'failed']
+            )
+        except polling.MaxCallException as e:
+            pass
+
+        if polling_status(polling_result) != 'completed':
+            # print(polling_result)
+            return
+
+        # Perform move operation
+        if move:
+            self.delete_page(page_id=page_id)
+
+
+    def delete_page(self, page_id:str):
+        """
+        Deletes a page.
+
+        Args:
+            page_id - ID of the page to be deleted.
+        """
+        resp = self.msc.oauth.delete(
+            url=f"https://graph.microsoft.com/v1.0//me/onenote/pages/{page_id}"
         )
