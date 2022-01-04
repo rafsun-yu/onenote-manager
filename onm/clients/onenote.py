@@ -137,7 +137,7 @@ class OneNoteClient:
         # Sends post request
         resp = self.msc.oauth.post(
             url = f"https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages",
-            data=page_content.get_html(),
+            data=page_content.get_html().encode('utf-8'),
             headers={
                 "Content-Type": "text/html"
             }

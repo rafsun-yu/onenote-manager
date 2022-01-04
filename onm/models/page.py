@@ -1,5 +1,5 @@
 from datetime import datetime
-from os import sep
+from dateutil import parser
 import pathlib
 from bs4 import BeautifulSoup
 from .model import Model
@@ -15,7 +15,7 @@ class Page(Model):
         Except for page_content.
         """
         self.id = id 
-        self.created_date_time = created_date_time 
+        self.created_date_time = created_date_time
         self.title = title 
         self.content_url = content_url
         self.page_content = PageContent()
@@ -85,7 +85,7 @@ class PageContent():
             only_body - If set, then returns only HTML inside the first 'body > div'.
         """
         if only_body:
-            return self._get_soup_content().encode_contents().decode("utf-8")
+            return self._get_soup_content().encode_contents(encoding='utf-8').decode("utf-8")
         else:
             return str(self.soup)
 
@@ -98,8 +98,12 @@ class PageContent():
 
 
     def _set_soup_title(self, title:str):
-        """ Sets the text of title element (<title>) in the soup object. """
-        self.soup.title.string = title
+        """ 
+        Sets the text of title element (<title>) in the soup object. 
+        If 'title' tag not found, does not do anything.
+        """
+        if self.soup.title is not None:
+            self.soup.title.string = title
 
 
     def _set_soup_created(self, created_timestamp:str=None, created_datetime:datetime=None):
@@ -107,10 +111,15 @@ class PageContent():
         Sets the date created element (<meta name='created'>) in the soup object. 
         Either of the optional argument must be provided.
 
+        If 'meta[name=created]' tag not found, does not do anything.
+
         Args:
             created_timestamp (str) - Must be in the ISO format.
             created_datetime (datetime) - Created time as datetime instance.
         """
+        if len(self.soup.select('meta[name=created]')) == 0:
+            return
+
         time_str = created_timestamp if created_timestamp is not None else created_datetime.isoformat()
         created = self.soup.select('meta[name=created]')[0]
         created['content'] = time_str
@@ -121,7 +130,11 @@ class PageContent():
         Returns the first 'div' inside 'body' in the soup object. This element is the root
         of the contents. 
         """
-        return self.soup.select('body > div')[0]
+        contents = self.soup.select('body > div')
+        if len(contents) == 0:
+            return BeautifulSoup("", "html.parser")
+        else:
+            return contents[0]
 
 
     def _get_template_html(self):
