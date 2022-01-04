@@ -207,6 +207,8 @@ class OneNoteClient:
         )
 
         if resp.status_code != 202:
+            print('Copy request fail')
+            print(resp.status_code  )
             print(resp.text)
             return
 
@@ -232,7 +234,8 @@ class OneNoteClient:
             pass
 
         if polling_status(polling_result) != 'completed':
-            # print(polling_result)
+            print('Copy operation failed.')
+            print(polling_result)
             return
 
         # Perform move operation
