@@ -51,18 +51,28 @@ class OneNoteClient:
         return sections
 
 
-    def list_pages(self, section_id: str) -> list:
+    def list_pages(self, section_id:str=None, url:str=None) -> list:
         """
-        Returns a list of all pages inside the provided section.
+        Returns a list of all pages inside the provided section or url.
         """
+        if section_id is not None:
+            url = f'https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages'
+
         pages = []
-        data = self.msc.oauth.get(f'https://graph.microsoft.com/v1.0/me/onenote/sections/{section_id}/pages').json()
+        data = self.msc.oauth.get(url).json()
 
         for o in data['value']:
             p = Page.from_json(json_obj=o)
             pages.append(p)
 
-        return pages
+        next_page_url = None
+        if '@odata.nextLink' in data.keys():
+            next_page_url = data['@odata.nextLink']
+
+        if next_page_url is None:
+            return pages
+        else:
+            return pages + self.list_pages(url=next_page_url)
 
 
     def search(self, notebook_name: str, section_name: str = None, page_name: str = None):
