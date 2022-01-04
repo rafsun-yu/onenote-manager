@@ -24,7 +24,7 @@ def launch(ctx):
         auth_endpoint=config.API["auth_endpoint"],
         token_endpoint=config.API["token_endpoint"],
         redirect_uri=config.API["redirect_uri"],
-        scope=["Notes.Read", "User.Read"]
+        scope=["Notes.ReadWrite", "User.Read", "Notes.Read"]
     )
 
     # Initates OneNote Client
