@@ -1,0 +1,189 @@
+{
+	"@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages",
+	"value": [
+		{
+			"id": "0-e935738bbc1d642d801a35be2975ce9d!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-e935738bbc1d642d801a35be2975ce9d!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-10-22T01:55:58.569Z",
+			"title": "there are lot of important and interesting things to do in life.",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-e935738bbc1d642d801a35be2975ce9d!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:14:38Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#there%20are%20lot%20of%20important%20and%20interesting%20things%20to%20do%20&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=966e6166-4548-9349-9812-93419e17baa6&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2Fthere%20are%20lot%20of%20important%20and%20interesting%20things%20to%20do%20%7C966e6166-4548-9349-9812-93419e17baa6%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-e935738bbc1d642d801a35be2975ce9d%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-f3d992ad197f082aaea76281b8c5a6e7!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-f3d992ad197f082aaea76281b8c5a6e7!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-10-21T13:42:53.138Z",
+			"title": "In order for meditation to work, you need to read contents deeply that will later popup in your mind to control it during the session.",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-f3d992ad197f082aaea76281b8c5a6e7!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:14:08Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#In%20order%20for%20meditation%20to%20work%2C%20you%20need%20to%20&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=2b1b6eba-2db9-e348-92a3-48791381c1e8&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2FIn%20order%20for%20meditation%20to%20work%2C%20you%20need%20to%20%7C2b1b6eba-2db9-e348-92a3-48791381c1e8%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-f3d992ad197f082aaea76281b8c5a6e7%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-0e9189cfb8e47b28b05d4c1c7374f572!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-0e9189cfb8e47b28b05d4c1c7374f572!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-10-23T03:03:42.219Z",
+			"title": "Leo gura motivation oxt 21",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-0e9189cfb8e47b28b05d4c1c7374f572!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:13:09Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#Leo%20gura%20motivation%20oxt%2021&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=858022cf-754f-3d49-8381-1ce4fdf89435&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2FLeo%20gura%20motivation%20oxt%2021%7C858022cf-754f-3d49-8381-1ce4fdf89435%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-0e9189cfb8e47b28b05d4c1c7374f572%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-dcc800c7fd27d0219195806c6f97eb24!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-dcc800c7fd27d0219195806c6f97eb24!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-11-01T14:19:11.801Z",
+			"title": "posting",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-dcc800c7fd27d0219195806c6f97eb24!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:12:14Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#posting&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=af08fb7a-d3e5-c947-a64d-5bea339cf4a2&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2Fposting%7Caf08fb7a-d3e5-c947-a64d-5bea339cf4a2%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-dcc800c7fd27d0219195806c6f97eb24%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-5f13cce87b79e0208e178c00dcc6d50b!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-5f13cce87b79e0208e178c00dcc6d50b!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-11-08T20:40:56.836Z",
+			"title": "Cedarbrae",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-5f13cce87b79e0208e178c00dcc6d50b!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:11:38Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#Cedarbrae&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=f674baa4-d672-b440-8af5-8f6dfea4629a&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2FCedarbrae%7Cf674baa4-d672-b440-8af5-8f6dfea4629a%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-5f13cce87b79e0208e178c00dcc6d50b%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-5ec6d2bb3a0177278dd7421f9012d9ad!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-5ec6d2bb3a0177278dd7421f9012d9ad!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-12-19T06:54:40.921Z",
+			"title": "Onm project idea:",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-5ec6d2bb3a0177278dd7421f9012d9ad!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:09:40Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#Onm%20project%20idea&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=34bdb757-6b15-2747-b2e9-8ca217592e5c&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2FOnm%20project%20idea%7C34bdb757-6b15-2747-b2e9-8ca217592e5c%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-5ec6d2bb3a0177278dd7421f9012d9ad%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-42403a0e1a53282689ab3ef8f928df6d!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-42403a0e1a53282689ab3ef8f928df6d!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-12-19T06:57:47.187Z",
+			"title": "Swe vs ML?",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-42403a0e1a53282689ab3ef8f928df6d!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:09:21Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#Swe%20vs%20ML&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=eaf6356b-4e50-e048-9afd-ac97495bf71a&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2FSwe%20vs%20ML%7Ceaf6356b-4e50-e048-9afd-ac97495bf71a%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-42403a0e1a53282689ab3ef8f928df6d%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		},
+		{
+			"id": "0-3d53809e5641de2abf6833ab7daf21ff!1-BD6FB9BC4905C850!3142",
+			"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-3d53809e5641de2abf6833ab7daf21ff!1-BD6FB9BC4905C850!3142",
+			"createdDateTime": "2021-12-29T14:57:30.992Z",
+			"title": "patrick_slaney@hotmail.com",
+			"createdByAppId": "",
+			"contentUrl": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/pages/0-3d53809e5641de2abf6833ab7daf21ff!1-BD6FB9BC4905C850!3142/content",
+			"lastModifiedDateTime": "2021-12-30T22:07:50Z",
+			"links": {
+				"oneNoteClientUrl": {
+					"href": "onenote:https://d.docs.live.net/bd6fb9bc4905c850/Documents/Test/Quick%20Notes.one#patrick_slaney%40hotmail.com&section-id=c86829c8-52e7-4b0d-ba6a-341bb065a0bf&page-id=01289b0d-47b2-f24b-ba7d-32bf1133e769&end"
+				},
+				"oneNoteWebUrl": {
+					"href": "https://onedrive.live.com/redir.aspx?cid=bd6fb9bc4905c850&page=edit&resid=BD6FB9BC4905C850!3140&parId=BD6FB9BC4905C850!2851&wd=target%28Quick%20Notes.one%7Cc86829c8-52e7-4b0d-ba6a-341bb065a0bf%2Fpatrick_slaney%40hotmail.com%7C01289b0d-47b2-f24b-ba7d-32bf1133e769%2F%29"
+				}
+			},
+			"parentSection@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('rmprince14bd%40gmail.com')/onenote/sections('0-BD6FB9BC4905C850%213142')/pages('0-3d53809e5641de2abf6833ab7daf21ff%211-BD6FB9BC4905C850%213142')/parentSection/$entity",
+			"parentSection": {
+				"id": "0-BD6FB9BC4905C850!3142",
+				"displayName": "Quick Notes",
+				"self": "https://graph.microsoft.com/v1.0/users/rmprince14bd@gmail.com/onenote/sections/0-BD6FB9BC4905C850!3142"
+			}
+		}
+	]
+}
