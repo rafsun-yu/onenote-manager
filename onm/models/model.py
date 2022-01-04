@@ -1,4 +1,5 @@
 import json
+from dateutil import parser
 
 class Model:
     """
@@ -42,7 +43,12 @@ class Model:
         common_keys = list(set(keys_in_obj) & set(keys_in_json))
         
         for key in common_keys:
-            obj.__dict__[key] = j_obj[key]
+            val = j_obj[key]
+
+            if key == 'created_date_time':
+                val = parser.parse(val)
+
+            obj.__dict__[key] = val
 
         return obj
 
